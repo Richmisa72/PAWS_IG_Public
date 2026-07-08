@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-Hant" data-theme="caldera">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>P.A.W.S Instagram Dashboard</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="P.A.W.S Instagram Dashboard">
+        <span class="brand-dot"></span>
+        P.A.W.S IG
+      </a>
+      <nav class="nav" aria-label="Dashboard sections">
+        <a href="#overview">總累積</a>
+        <a href="#time">時間視圖</a>
+        <a href="#content">內容組合</a>
+        <a href="#posts">明細</a>
+      </nav>
+      <div class="theme-switch" aria-label="版型切換">
+        <button type="button" data-theme-choice="caldera" aria-label="亮色版" title="亮色版">
+          <span aria-hidden="true">☼</span>
+        </button>
+        <button type="button" data-theme-choice="obsidian" aria-label="暗色版" title="暗色版">
+          <span aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy-block">
+          <p class="eyebrow">Meta Business Suite · 2026-01-01 到 2026-06-30</p>
+          <h1>IG 成長訊號與每週節奏</h1>
+          <p class="hero-copy">
+            這版用官方匯出的貼文與 Reel 資料，先追蹤觀看、觸及、互動與追蹤轉換
+            限時動態、粉絲每日成長與受眾輪廓尚未匯入，所以不做過度推論
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#time">看時間視圖</a>
+            <a class="secondary-link" href="../reports/2026-07-06_ig_growth_report_to_2026-06-30.html">閱讀完整報表</a>
+          </div>
+        </div>
+        <div class="hero-stat" aria-label="期間總觀看">
+          <span>Total Views</span>
+          <strong data-kpi="heroViews">--</strong>
+          <small>自有帳號 33 則內容</small>
+        </div>
+      </section>
+
+      <section id="overview" class="section-shell">
+        <div class="section-heading">
+          <p class="eyebrow">01 · 總累積</p>
+          <h2>整段期間健康度</h2>
+          <p>這裡是 2026-01-01 到 2026-06-30 的總成績，用來判斷目前帳號主要靠什麼內容拉動</p>
+        </div>
+        <div class="kpi-grid" aria-label="核心 KPI">
+          <article class="kpi-card">
+            <span>總觀看</span>
+            <strong data-kpi="views">--</strong>
+            <small>主要由 Reel 帶動</small>
+          </article>
+          <article class="kpi-card">
+            <span>總觸及</span>
+            <strong data-kpi="reach">--</strong>
+            <small>官方 Meta 匯出</small>
+          </article>
+          <article class="kpi-card">
+            <span>總互動</span>
+            <strong data-kpi="engagements">--</strong>
+            <small>讚 + 留言 + 分享 + 收藏</small>
+          </article>
+          <article class="kpi-card">
+            <span>追蹤轉換</span>
+            <strong data-kpi="follows">--</strong>
+            <small>4/22 爆款拉動最大</small>
+          </article>
+        </div>
+      </section>
+
+      <section id="time" class="section-shell">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow">02 · 時間視圖</p>
+            <h2>時間表現視圖</h2>
+            <p>目前是貼文發布日的表現彙總，不是粉絲每天自然成長曲線</p>
+          </div>
+          <div class="time-tabs" aria-label="時間粒度切換">
+            <button type="button" class="time-tab" data-grain="daily">每天</button>
+            <button type="button" class="time-tab" data-grain="weekly">每週</button>
+            <button type="button" class="time-tab" data-grain="monthly">每月</button>
+            <button type="button" class="time-tab" data-grain="total">總累積</button>
+          </div>
+        </div>
+        <div class="chart-panel feature-panel">
+          <div class="panel-head">
+            <div>
+              <h3 data-time-title>每月觀看趨勢</h3>
+              <p data-time-note>4 月由奧托 Reel 明顯拉高，其餘月份是日常基準</p>
+            </div>
+          </div>
+          <div id="timeSummary" class="mini-kpis" aria-label="所選時間摘要"></div>
+          <div id="timeChart" class="chart" role="img" aria-label="時間趨勢圖"></div>
+        </div>
+      </section>
+
+      <section id="content" class="split-section">
+        <div class="chart-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">03 · 內容組合</p>
+              <h3>格式表現</h3>
+              <p>Reel 負責拉新，輪播負責承接理解與留言題目</p>
+            </div>
+          </div>
+          <div id="formatChart" class="chart compact" role="img" aria-label="內容格式觀看比較"></div>
+        </div>
+        <div class="chart-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">04 · 主題表現</p>
+              <h3>內容主題</h3>
+              <p>角色世界觀目前是最值得加碼的主軸</p>
+            </div>
+          </div>
+          <div id="themeChart" class="chart compact" role="img" aria-label="內容主題觀看比較"></div>
+        </div>
+      </section>
+
+      <section class="insight-band">
+        <p class="eyebrow">05 · 下週內容節奏</p>
+        <h2 class="schedule-title"><span>下週排程建議：</span><span>拉新、養成、互動、轉換</span></h2>
+        <div class="schedule-grid">
+          <div><span>週一</span><strong>角色 Reel</strong><small>本週案件主角登場，優先複製 4/22 的角色介紹結構</small></div>
+          <div><span>週三</span><strong>漫畫輪播</strong><small>日常困擾 + 留言題目，養成固定回訪</small></div>
+          <div><span>週五</span><strong>動畫 Reel</strong><small>精彩瞬間、動作梗或角色反差，用來擴散</small></div>
+          <div><span>週末</span><strong>CTA</strong><small>貼圖情境、活動倒數、留言互動或主頁連結導購</small></div>
+        </div>
+      </section>
+
+      <section id="posts" class="table-section">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow">06 · 明細追蹤</p>
+            <h2>內容延伸線索</h2>
+            <p>用月份、格式、主題快速篩選，挑出下週要延伸或調整的內容</p>
+          </div>
+          <div class="filters" aria-label="內容篩選">
+            <label>
+              月份
+              <select id="monthFilter"></select>
+            </label>
+            <label>
+              格式
+              <select id="formatFilter"></select>
+            </label>
+            <label>
+              主題
+              <select id="themeFilter"></select>
+            </label>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>日期</th>
+                <th>格式</th>
+                <th>主題</th>
+                <th>觀看</th>
+                <th>觸及</th>
+                <th>互動率</th>
+                <th>收藏</th>
+                <th>分享</th>
+                <th>追蹤</th>
+              </tr>
+            </thead>
+            <tbody id="postRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="caveat">
+        <strong>資料限制</strong>
+        <p>
+          目前 Dashboard 使用 Meta Business Suite 匯出的貼文層級資料，尚未包含限時動態、
+          粉絲每日成長、受眾年齡性別地區與留言文字，因此這些面向先標示為待補資料
+        </p>
+      </section>
+    </main>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
