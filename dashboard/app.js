@@ -1,6 +1,3 @@
-const summaryUrl = "../data/processed/2026-07-06_meta_instagram_summary.json";
-const postsUrl = "../data/processed/2026-07-06_meta_instagram_posts_2026-01-01_to_2026-06-30_processed.csv";
-
 const numberFormat = new Intl.NumberFormat("zh-Hant-TW");
 const percentFormat = new Intl.NumberFormat("zh-Hant-TW", {
   style: "percent",
@@ -413,18 +410,12 @@ function setupTheme(summary) {
 }
 
 async function boot() {
-  let summary;
-  if (window.PAWS_DASHBOARD_DATA) {
-    summary = window.PAWS_DASHBOARD_DATA.summary;
-    posts = window.PAWS_DASHBOARD_DATA.posts;
-  } else {
-    const [loadedSummary, csv] = await Promise.all([
-      fetch(summaryUrl).then((response) => response.json()),
-      fetch(postsUrl).then((response) => response.text()),
-    ]);
-    summary = loadedSummary;
-    posts = parseCsv(csv);
+  if (!window.PAWS_DASHBOARD_DATA) {
+    throw new Error("找不到 Dashboard 內嵌資料");
   }
+
+  const summary = window.PAWS_DASHBOARD_DATA.summary;
+  posts = window.PAWS_DASHBOARD_DATA.posts;
 
   setKpis(summary);
   setupTimeTabs();
