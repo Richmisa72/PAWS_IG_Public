@@ -289,13 +289,14 @@ function renderTimeView() {
     `;
     return;
   }
+  const isNarrowViewport = window.innerWidth <= 720;
   document.querySelector("#timeChart").innerHTML = makeBars(
     rows.map((row) => ({
       label: row.label,
       value: row.views,
       color: row.views > 50000 ? colors.accent : undefined,
     })),
-    { height: timeGrain === "daily" ? 380 : 340 }
+    { height: isNarrowViewport ? (timeGrain === "daily" ? 720 : 640) : (timeGrain === "daily" ? 380 : 340) }
   );
 }
 
