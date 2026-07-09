@@ -289,14 +289,13 @@ function renderTimeView() {
     `;
     return;
   }
-  const isNarrowViewport = window.innerWidth <= 720;
   document.querySelector("#timeChart").innerHTML = makeBars(
     rows.map((row) => ({
       label: row.label,
       value: row.views,
       color: row.views > 50000 ? colors.accent : undefined,
     })),
-    { height: isNarrowViewport ? (timeGrain === "daily" ? 720 : 640) : (timeGrain === "daily" ? 380 : 340) }
+    { height: timeGrain === "daily" ? 380 : 340 }
   );
 }
 
@@ -354,15 +353,15 @@ function renderRows() {
 
   document.querySelector("#postRows").innerHTML = filtered.map((post) => `
     <tr>
-      <td data-label="日期">${post.publish_date}</td>
-      <td data-label="格式">${post.content_format}</td>
-      <td data-label="主題">${post.content_theme}</td>
-      <td data-label="觀看">${fmt(post["瀏覽次數"])}</td>
-      <td data-label="觸及">${fmt(post["觸及人數"])}</td>
-      <td data-label="互動率">${percentFormat.format(num(post.engagement_rate_reach))}</td>
-      <td data-label="收藏">${fmt(post["儲存次數"])}</td>
-      <td data-label="分享">${fmt(post["分享"])}</td>
-      <td data-label="追蹤">${fmt(post["追蹤人數"])}</td>
+      <td>${post.publish_date}</td>
+      <td>${post.content_format}</td>
+      <td>${post.content_theme}</td>
+      <td>${fmt(post["瀏覽次數"])}</td>
+      <td>${fmt(post["觸及人數"])}</td>
+      <td>${percentFormat.format(num(post.engagement_rate_reach))}</td>
+      <td>${fmt(post["儲存次數"])}</td>
+      <td>${fmt(post["分享"])}</td>
+      <td>${fmt(post["追蹤人數"])}</td>
     </tr>
   `).join("");
 }
