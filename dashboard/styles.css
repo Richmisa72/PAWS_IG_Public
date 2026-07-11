@@ -172,6 +172,24 @@ main {
   margin: 0 auto;
 }
 
+.sync-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  width: min(var(--content), calc(100% - 32px));
+  margin: 0 auto 28px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.sync-strip > div { padding: 16px; background: var(--panel); }
+.sync-strip span { display: block; margin-bottom: 6px; color: var(--muted); font-size: .78rem; }
+.sync-strip strong { font-size: .95rem; }
+
+@media (max-width: 720px) {
+  .sync-strip { grid-template-columns: 1fr 1fr; }
+}
+
 .hero {
   width: min(var(--content), calc(100% - 40px));
   min-height: auto;

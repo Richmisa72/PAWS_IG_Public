@@ -90,6 +90,19 @@ function setKpis(summary) {
   document.querySelector('[data-kpi="follows"]').textContent = fmt(totals["追蹤人數"]);
 }
 
+function setSyncStatus(summary) {
+  const sync = summary.sync || {};
+  const set = (name, value) => {
+    const node = document.querySelector(`[data-sync="${name}"]`);
+    if (node) node.textContent = value;
+  };
+  const showTime = (value) => value ? new Date(value).toLocaleString("zh-Hant-TW", { timeZone: "Asia/Taipei" }) : "--";
+  set("status", sync.status || "手動資料");
+  set("last", showTime(sync.last_successful_sync));
+  set("latest", showTime(sync.latest_meta_data));
+  set("changes", `${num(sync.created) + num(sync.updated)} 筆`);
+}
+
 function cssVar(name) {
   return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 }
@@ -418,6 +431,7 @@ async function boot() {
   posts = window.PAWS_DASHBOARD_DATA.posts;
 
   setKpis(summary);
+  setSyncStatus(summary);
   setupTimeTabs();
   renderTimeView();
   renderFilters();
